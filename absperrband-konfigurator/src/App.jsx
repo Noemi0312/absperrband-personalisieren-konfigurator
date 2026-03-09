@@ -26,7 +26,7 @@ const SYSTEMS = {
     belts: 1,
     band: { h_mm: 50, l_mm: 2080 },
     logoMax: { h_mm: 28, w_mm: 150 },
-    colors: ["blau", "rot", "rot-weiß", "gelb-schwarz"],
+    colors: ["blau", "rot-weiß", "gelb-schwarz"],
     styleLines: "standard",
   },
   "Tempaline Style": {
