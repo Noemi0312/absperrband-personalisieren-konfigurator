@@ -415,15 +415,20 @@ export default function App() {
   const t = UI[lang];
 
   useEffect(() => {
-    const onR = () => {
-      if (!previewRef.current) return;
-      const w = previewRef.current.clientWidth || 1000;
-      setBandPx(Math.max(900, Math.min(1750, w - 64)));
-    };
-    onR();
-    window.addEventListener("resize", onR);
-    return () => window.removeEventListener("resize", onR);
-  }, []);
+  const onR = () => {
+    if (!previewRef.current) return;
+    const w = previewRef.current.clientWidth || 1000;
+
+    // verfügbare Breite im Preview-Container
+    const available = Math.max(320, w - 64);
+
+    setBandPx(Math.min(1750, available));
+  };
+
+  onR();
+  window.addEventListener("resize", onR);
+  return () => window.removeEventListener("resize", onR);
+}, []);
 
   const [system, setSystem] = useState("Stopper Master");
   const cfg = SYSTEMS[system];
